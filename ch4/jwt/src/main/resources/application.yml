@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: jwt
+  datasource:
+    url: jdbc:mysql://localhost:3306/learn_spring_security?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    # Druid连接池专有配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    filters: stat,wall,log4j2 # 开启监控统计和防火墙功能
+  # redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+logging:
+  level:
+    org:
+      springframework:
+        security: trace
+# MyBatis-Plus 配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true # 自动转换下划线命名到驼峰命名
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 打印SQL日志，开发时有用
+jwt:
+  expiration-ms: 60000
+  refresh-token-expiration-hours: 24
