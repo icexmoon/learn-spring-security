@@ -5,7 +5,7 @@ import lombok.Data;
 
 /**
  * @ClassName User
- * @Description
+ * @Description Spring Security 默认的用户实体结构
  * @Author icexmoon@qq.com
  * @Date 2026/1/5 11:03
  * @Version 1.0

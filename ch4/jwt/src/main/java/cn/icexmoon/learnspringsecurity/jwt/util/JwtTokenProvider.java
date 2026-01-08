@@ -14,7 +14,7 @@ import java.util.UUID;
 
 /**
  * @ClassName JwtTokenProvider
- * @Description
+ * @Description JWT令牌提供者
  * @Author icexmoon@qq.com
  * @Date 2026/1/5 16:26
  * @Version 1.0

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * @ClassName GlobalExceptionHandler
- * @Description
+ * @Description 全局异常处理
  * @Author icexmoon@qq.com
  * @Date 2026/1/7 14:03
  * @Version 1.0
@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
+    /**
+     * 处理业务异常
+     */
     @ExceptionHandler(BusinessException.class)
     public Result<Object> handleBusinessException(BusinessException ex, HttpServletResponse response) {
         log.debug("handleBusinessException: {}", ex.getMessage(), ex);
@@ -31,7 +34,7 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * 可选的：处理其他未预期的异常，作为一个保底方案
+     * 处理其他未预期的异常，作为一个保底方案
      */
     @ExceptionHandler(Exception.class)
     public Result<Void> handleAllExceptions(Exception ex) {

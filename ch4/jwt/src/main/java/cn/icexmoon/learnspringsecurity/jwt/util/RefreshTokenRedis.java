@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @ClassName RefreshTokenRedis
- * @Description
+ * @Description 刷新令牌存储在Redis中
  * @Author icexmoon@qq.com
  * @Date 2026/1/7 13:08
  * @Version 1.0
@@ -23,6 +23,11 @@ public class RefreshTokenRedis {
     @Autowired
     private JwtProperties jwtProperties;
 
+    /**
+     * 保存刷新令牌
+     * @param username 用户名
+     * @param refreshToken 刷新令牌
+     */
     public void save(@NonNull String username, @NonNull String refreshToken) {
         redisTemplate.opsForValue().set(
                 REFRESH_TOKEN_KEY_PREFIX + username,
@@ -32,14 +37,29 @@ public class RefreshTokenRedis {
         );
     }
 
+    /**
+     * 获取刷新令牌
+     * @param username 用户名
+     * @return 刷新令牌
+     */
     public String get(@NonNull String username) {
         return redisTemplate.opsForValue().get(REFRESH_TOKEN_KEY_PREFIX + username);
     }
 
+    /**
+     * 验证刷新令牌
+     * @param username 用户名
+     * @param refreshToken 刷新令牌
+     * @return 验证结果
+     */
     public boolean validate(@NonNull String username, @NonNull String refreshToken){
         return refreshToken.equals(get(username));
     }
 
+    /**
+     * 删除刷新令牌
+     * @param username 用户名
+     */
     public void delete(String username) {
         redisTemplate.delete(REFRESH_TOKEN_KEY_PREFIX + username);
     }

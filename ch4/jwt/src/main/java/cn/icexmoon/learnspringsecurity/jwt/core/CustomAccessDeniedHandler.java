@@ -15,7 +15,7 @@ import java.io.IOException;
 
 /**
  * @ClassName CustomAccessDeniedHandler
- * @Description
+ * @Description 重写请求拒绝访问处理器
  * @Author icexmoon@qq.com
  * @Date 2026/1/6 13:58
  * @Version 1.0

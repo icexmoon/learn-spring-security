@@ -6,7 +6,7 @@ import java.util.Date;
 
 /**
  * @ClassName RefreshToken
- * @Description
+ * @Description 刷新令牌
  * @Author icexmoon@qq.com
  * @Date 2026/1/7 10:52
  * @Version 1.0

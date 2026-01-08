@@ -12,7 +12,7 @@ import java.io.IOException;
 
 /**
  * @ClassName JwtAuthenticationEntryPoint
- * @Description
+ * @Description 验证失败的响应处理
  * @Author icexmoon@qq.com
  * @Date 2026/1/6 15:32
  * @Version 1.0

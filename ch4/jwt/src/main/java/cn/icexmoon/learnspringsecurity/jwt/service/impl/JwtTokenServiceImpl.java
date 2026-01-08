@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @ClassName JwtTokenServiceImpl
- * @Description
+ * @Description JWT 令牌相关服务
  * @Author icexmoon@qq.com
  * @Date 2026/1/7 12:40
  * @Version 1.0
@@ -37,6 +37,11 @@ public class JwtTokenServiceImpl implements JwtTokenService {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    /**
+     * 生成 access token 和 refresh token
+     * @param userDetails 用户信息
+     * @return 登录响应
+     */
     @Override
     public AuthController.LoginResponse generateToken(@NonNull UserDetails userDetails) {
         // 生成 access token
@@ -48,6 +53,13 @@ public class JwtTokenServiceImpl implements JwtTokenService {
         return new AuthController.LoginResponse(accessToken, refreshToken);
     }
 
+    /**
+     * 验证 refresh token
+     * 验证失败，抛出异常
+     * 验证成功，返回新的 access token 和 refresh token
+     * @param refreshToken refresh token
+     * @return 新的 access token 和 refresh token
+     */
     @Override
     public AuthController.LoginResponse validateToken(@NonNull String refreshToken) {
         // 验证 JWT 加密是否正确

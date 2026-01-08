@@ -39,6 +39,12 @@ public class AuthController {
     @Autowired
     private JwtTokenService jwtTokenService;
 
+    /**
+     * 登录
+     *
+     * @param loginRequest 登录请求
+     * @return 登录结果
+     */
     @PostMapping("/login")
     public Result<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
         // 进行认证
@@ -59,6 +65,12 @@ public class AuthController {
         return Result.success(jwtTokenService.generateToken(userDetails));
     }
 
+    /**
+     * 刷新令牌
+     *
+     * @param refreshRequest 刷新令牌请求
+     * @return 刷新令牌结果
+     */
     @PostMapping("/refresh")
     public Result<LoginResponse> refresh(@RequestBody RefreshRequest refreshRequest) {
         // 验证 refreshToken 并生成新的访问令牌和刷新令牌

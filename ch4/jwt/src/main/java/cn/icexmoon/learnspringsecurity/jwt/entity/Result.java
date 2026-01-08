@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * @ClassName Result
- * @Description
+ * @Description 系统的统一响应结果
  * @Author icexmoon@qq.com
  * @Date 2026/1/6 08:11
  * @Version 1.0

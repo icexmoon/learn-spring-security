@@ -40,7 +40,7 @@ public class SecurityConfig {
                 .sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // 无状态会话
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/hello").permitAll()
+//                        .requestMatchers("/api/hello").permitAll()
                         .requestMatchers("/api/auth/**","/error").permitAll() // 登录注册公开
                         .requestMatchers("/admin/**").hasRole("ADMIN") // 管理员可访问
                         .anyRequest().authenticated() // 其他请求需认证
