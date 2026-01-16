@@ -31,6 +31,14 @@ public class SecurityConfig {
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
 
+    /**
+     * 配置路径认证规则
+     * @param http HttpSecurity
+     * @param customAccessDeniedHandler 自定义403处理
+     * @param jwtAuthenticationEntryPoint 自定义401处理
+     * @return SecurityFilterChain
+     * @throws Exception 异常
+     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http,
                                            CustomAccessDeniedHandler customAccessDeniedHandler,
@@ -40,7 +48,6 @@ public class SecurityConfig {
                 .sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // 无状态会话
                 .authorizeHttpRequests(authorize -> authorize
-//                        .requestMatchers("/api/hello").permitAll()
                         .requestMatchers("/api/auth/**","/error").permitAll() // 登录注册公开
                         .requestMatchers("/admin/**").hasRole("ADMIN") // 管理员可访问
                         .anyRequest().authenticated() // 其他请求需认证
@@ -54,6 +61,12 @@ public class SecurityConfig {
         return http.build();
     }
 
+    /**
+     * 认证管理器
+     * @param userDetailsService 用户详情服务
+     * @param passwordEncoder 密码编码器
+     * @return 认证管理器
+     */
     @Bean
     public AuthenticationManager authenticationManager(
             UserDetailsService userDetailsService,
@@ -63,6 +76,10 @@ public class SecurityConfig {
         return new ProviderManager(authenticationProvider);
     }
 
+    /**
+     * 密码编码器
+     * @return 密码编码器
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();

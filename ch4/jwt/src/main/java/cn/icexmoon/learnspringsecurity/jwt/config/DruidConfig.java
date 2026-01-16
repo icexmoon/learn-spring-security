@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 
 /**
  * @ClassName DruidConfig
- * @Description
+ * @Description 数据源
  * @Author icexmoon@qq.com
  * @Date 2026/1/5 16:23
  * @Version 1.0

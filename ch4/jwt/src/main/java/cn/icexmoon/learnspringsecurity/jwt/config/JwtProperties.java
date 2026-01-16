@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @ClassName JwtProperties
- * @Description
+ * @Description JWT 令牌的自定义配置
  * @Author icexmoon@qq.com
  * @Date 2026/1/7 12:49
  * @Version 1.0
