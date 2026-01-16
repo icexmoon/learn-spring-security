@@ -30,5 +30,5 @@ mybatis-plus:
     map-underscore-to-camel-case: true # 自动转换下划线命名到驼峰命名
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 打印SQL日志，开发时有用
 jwt:
-  expiration-ms: 60000
+  expiration-ms: 1800000
   refresh-token-expiration-hours: 24

@@ -1,6 +1,6 @@
 package cn.icexmoon.learnspringsecurity.jwt.service.impl;
 
-import cn.icexmoon.learnspringsecurity.jwt.entity.User;
+import cn.icexmoon.learnspringsecurity.jwt.entity.CustomUser;
 import cn.icexmoon.learnspringsecurity.jwt.mapper.UserMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,18 +29,12 @@ public class UserDetailServiceImpl implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        QueryWrapper<CustomUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("username", username);
-        User user = userMapper.selectOne(queryWrapper);
+        CustomUser user = userMapper.selectOne(queryWrapper);
         if (user == null) {
             throw new UsernameNotFoundException("用户不存在" + username);
         }
-        return org.springframework.security.core.userdetails.User.builder()
-                .username(user.getUsername())
-                .password(user.getPassword())
-                // 假设用户角色为USER
-                .authorities("ROLE_USER")
-                .disabled(!user.getEnabled())
-                .build();
+        return user;
     }
 }

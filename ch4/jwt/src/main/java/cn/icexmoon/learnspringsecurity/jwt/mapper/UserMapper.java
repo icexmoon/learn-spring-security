@@ -1,6 +1,6 @@
 package cn.icexmoon.learnspringsecurity.jwt.mapper;
 
-import cn.icexmoon.learnspringsecurity.jwt.entity.User;
+import cn.icexmoon.learnspringsecurity.jwt.entity.CustomUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -12,5 +12,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @Version 1.0
  */
 @Mapper
-public interface UserMapper extends BaseMapper<User> {
+public interface UserMapper extends BaseMapper<CustomUser> {
 }
