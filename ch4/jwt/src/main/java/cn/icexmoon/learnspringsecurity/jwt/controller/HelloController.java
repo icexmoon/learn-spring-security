@@ -26,4 +26,10 @@ public class HelloController {
     public Result<String> index() {
         return Result.success("index");
     }
+
+    @GetMapping("/userIndex")
+    @PreAuthorize("hasAuthority('/api/userIndex:read')")
+    public Result<String> userIndex(){
+        return Result.success("userIndex");
+    }
 }
