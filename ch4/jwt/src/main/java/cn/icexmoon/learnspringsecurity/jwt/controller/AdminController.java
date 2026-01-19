@@ -2,28 +2,21 @@ package cn.icexmoon.learnspringsecurity.jwt.controller;
 
 import cn.icexmoon.learnspringsecurity.jwt.entity.Result;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @ClassName HelloController
+ * @ClassName AdminController
  * @Description
  * @Author icexmoon@qq.com
- * @Date 2026/1/6 08:09
+ * @Date 2026/1/16 17:14
  * @Version 1.0
  */
+@RequestMapping("/admin")
 @RestController
-@RequestMapping("/api")
-public class HelloController {
-    @GetMapping("/hello")
-    public Result<String> hello() {
-        return Result.success("hello");
-    }
-
-    @GetMapping("/index")
-    @PreAuthorize("hasRole('ADMIN') || hasAuthority('/api/index:read')")
+public class AdminController {
+    @RequestMapping("/index")
     public Result<String> index() {
-        return Result.success("index");
+        return Result.success("Hello, Admin");
     }
 }

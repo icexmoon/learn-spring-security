@@ -24,6 +24,10 @@ logging:
     org:
       springframework:
         security: trace
+    cn:
+      icexmoon:
+        learnspringsecurity:
+          jwt: debug
 # MyBatis-Plus 配置
 mybatis-plus:
   configuration:
